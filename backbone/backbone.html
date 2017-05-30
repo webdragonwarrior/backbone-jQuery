@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Backbone Todo List</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
+    <script src='http://documentcloud.github.com/underscore/underscore.js'></script>
+    <script src='http://documentcloud.github.com/backbone/backbone.js'></script>
+    <script src='js/tasks.js'></script>
+    <script src='js/repository.js'></script>
+    <script src='js/main.js'></script>
+    <link rel='stylesheet' href='../common/main.css' />
+  </head>
+  <body>
+    <div id='content'>
+    <h1>Backbone Todo List</h1>
+    <section id='new-task'>
+      <h3>Create new task:</h3>
+      <form id='create-new-task'>
+        <label for='title'>Title:</label>
+        <input type='text' id='title'/><br/>
+        <label for='desc'>Description:</label>
+        <input type='text' id='desc'/><br/>
+        <label for='priority'>Priority:</label>
+        <select id='priority'>
+          <option value='0'>High</option>
+          <option value='1'>Med</option>
+          <option value='2'>Low</option>
+        </select>
+      </form>
+      <button id='create-new-task-button'>Create</button>
+    </section>
+    <section id='all-tasks'>
+      <h3>To-Do:</h3>
+      <ul></ul>
+    </section>
+    <section id='last-created'>
+      <h3>Newest:</h3>
+      <ul></ul>
+    </section>
+    <section id='last-completed'>
+      <h3>Last completed:</h3>
+      <ul></ul>
+    </section>
+    <section id='commands'>
+      <a href='#clear' id='clear'>Clear all</a>
+      <a href='#sample' id='sample'>Load sample data</a>
+    </section>
+    </div>
+  <script type='text/template' id='entry-template'>
+    <details class="p_<%= priority %>">
+      <summary>
+        <%= title %>
+        <input type="checkbox" data-task-id="<%= id %>">
+      </summary>
+      <span class="description"><%= description %></span>
+     </details>
+  </script>
+  <script type='text/template' id='mini-template'>
+    <li><%= title %></li>
+  </script>
+  </body>
+</html>
